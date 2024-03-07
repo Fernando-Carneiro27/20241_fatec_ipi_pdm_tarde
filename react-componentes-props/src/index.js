@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import Pedido from './Pedido'
 
 const App = () => {
     return (
@@ -16,54 +17,15 @@ const App = () => {
             <div className="row">
 
                 <div className="col-sm-12 col-lg-4">
-                    <div className="card mb-2">
-                        <div className="card-header text-muted">
-                            20/04/2023
-                        </div>
-                        <div className="card-body d-flex">
-                            <div className='d-flex align-items-center'>
-                                <div className="i fa-solid fa-book fa-2x"></div>
-                            </div>
-                            <div className='flex-grow-1 ms-2 border p-2'>
-                                <h4 className="text-center">Livro</h4>
-                                <p className='text-center'>Concrete Mathematics - Donald Knuth</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Pedido data="11/02/2021" icone="i fa-solid fa-book fa-2x" titulo="Livro" descricao="Concrete Mathematics - Donald Knuth" />
                 </div>
 
                 <div className="col-sm-12 col-lg-4">
-                <div className="card mb-2">
-                        <div className="card-header text-muted">
-                            20/04/2023
-                        </div>
-                        <div className="card-body d-flex">
-                            <div className='d-flex align-items-center'>
-                                <div className="i fa-solid fa-headphones fa-2x"></div>
-                            </div>
-                            <div className='flex-grow-1 ms-2 border p-2'>
-                                <h4 className="text-center">Fone</h4>
-                                <p className='text-center'>Fone de ouvido bluetooth, com carregador</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Pedido data="04/07/2022" icone="i fa-solid fa-headphones fa-2x" titulo="Fone" descricao="Fone de ouvido bluetooth, com carregador" />
                 </div>
 
                 <div className="col-sm-12 col-lg-4">
-                <div className="card mb-2">
-                        <div className="card-header text-muted">
-                            20/04/2023
-                        </div>
-                        <div className="card-body d-flex">
-                            <div className='d-flex align-items-center'>
-                                <div className="i fa-solid fa-camera fa-2x"></div>
-                            </div>
-                            <div className='flex-grow-1 ms-2 border p-2'>
-                                <h4 className="text-center">Câmera</h4>
-                                <p className='text-center'>TekPix, com Lente EF-S 18-55mm Full HD 4K</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Pedido data="20/10/2023" icone="i fa-solid fa-camera fa-2x" titulo="Câmera" descricao="TekPix, com Lente EF-S 18-55mm Full HD 4K"/>
                 </div>
 
             </div>
