@@ -4,8 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import Pedido from './Pedido'
 import Cartao from './Cartao'
+import Feedback from './Feedback'
 
 const App = () => {
+    const textoOK = "Já chegou"
+    const textoNOK = "Ainda não chegou"
+    const funcaoOK = () => alert("Agradecemos a confirmação")
+    const funcaoNOK = () => alert("Verificaremos o ocorrido")
+    const componenteFeedback = (
+        <Feedback 
+            textoOK={textoOK}
+            textoNOK={textoNOK}
+            funcaoOK={funcaoOK}
+            funcaoNOK={funcaoNOK} 
+        />
+    )
+
     return (
         <div className="container border rounded mt-2 p-2">
 
@@ -24,6 +38,7 @@ const App = () => {
                             titulo="Livro" 
                             descricao="Concrete Mathematics - Donald Knuth" 
                         />
+                        {componenteFeedback}
                     </Cartao>
                         
                 </div>
@@ -35,6 +50,7 @@ const App = () => {
                             titulo="Fone" 
                             descricao="Fone de ouvido bluetooth, com carregador" 
                         />
+                       {componenteFeedback}
                     </Cartao>
                     
                 </div>
@@ -46,6 +62,7 @@ const App = () => {
                             titulo="Câmera" 
                             descricao="TekPix, com Lente EF-S 18-55mm Full HD 4K"
                         />
+                        {componenteFeedback}
                     </Cartao>
                 </div>
 
