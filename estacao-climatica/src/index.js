@@ -12,7 +12,7 @@ class App extends React.Component{
             estacao: null,
             data: null,
             icone: null,
-            erro: null
+            mansagemDeErro: null
         }
     }
     obterEstacao = (data, latitude) => {
@@ -59,7 +59,7 @@ class App extends React.Component{
             (erro) => {
                 console.log(erro)
                 this.setState({
-                    erro: 'Por favor, permita o acesso'
+                    mansagemDeErro: 'Por favor, permita o acesso'
                 })
                 //faça com que o texto "por favor, permita o acesso" apareça na tela
             }
@@ -72,10 +72,9 @@ class App extends React.Component{
         'Outono': 'fa-leaf',
         'Inverno': 'fa-snowflake'
     }
-    componentDidMount(){
-        this.obterLocalizacao()
-    }
+   
     render() {
+        console.log(this.state)
         return(
             <div className="container mt-4">
                 <div className="row justify-content-center">
@@ -95,11 +94,10 @@ class App extends React.Component{
                                         {
                                             this.state.latitude ? 
                                             `Coords: ${this.state.latitude}. ${this.state.longitude}. Data: ${this.state.data}` : 
+                                            this.state.mansagemDeErro ?
+                                            `${this.state.mansagemDeErro}` :
                                             `Clique no botão para saber a sua estação climática`
                                         }
-                                    </p>
-                                    <p className="text-center text-danger">
-                                        {this.state.erro}
                                     </p>
                                 </div>
 
