@@ -4,17 +4,40 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import ReactDOM from 'react-dom'
 import React from 'react'
 class App extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            latitude: null,
-            longitude: null,
-            estacao: null,
-            data: null,
-            icone: null,
-            mansagemDeErro: null
-        }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         latitude: null,
+    //         longitude: null,
+    //         estacao: null,
+    //         data: null,
+    //         icone: null,
+    //         mansagemDeErro: null
+    //     }
+    //     console.log('construtor')
+    // }
+    state = {
+        latitude: null,
+        longitude: null,
+        estacao: null,
+        data: null,
+        icone: null,
+        mensagemDeErro: null
+
     }
+
+    componentDidMount() {
+        this.obterLocalizacao()
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate')
+    }
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+    }
+
     obterEstacao = (data, latitude) => {
         const anoAtual = data.getFullYear()
         //21/06
@@ -74,7 +97,7 @@ class App extends React.Component{
     }
    
     render() {
-        console.log(this.state)
+        console.log('render')
         return(
             <div className="container mt-4">
                 <div className="row justify-content-center">
@@ -107,6 +130,12 @@ class App extends React.Component{
                                         onClick={this.obterLocalizacao}
                                         disabled={this.state.erro}>
                                         Qual a minha estação?
+                                    </button>
+                                    <button 
+                                        className="btn btn-outline-danger w-100 mt-2"
+                                        onClick={() => ReactDOM.unmountComponentAtNode(document.querySelector
+                                        ('#root'))}>
+                                            Unmount
                                     </button>
                                 </div>
 
