@@ -5,11 +5,35 @@ import ReactDOM from 'react-dom'
 
 export class EstacaoClimatica extends Component {
 
+    state = {
+        data: null
+    }
+
+    timer = null
+
+    componentDidMount() {
+        this.timer = setInterval(() => {
+            //extrair a data atual do sistema e atualizar o estado
+            let dataAtual = new Date()
+            this.setState({data: new Date().toLocaleTimeString()})
+        }, 1000)
+    }       
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+        clearInterval(this.timer)   
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate')
+    }
+
     constructor(props) {
         super(props)
     }
 
   render() {
+    console.log('render')
     return (
         <div className="card">
             {/* corpo */}

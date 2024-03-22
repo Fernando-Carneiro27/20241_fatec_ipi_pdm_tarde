@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import EstacaoClimatica from './EstacaoClimatica'
 class App extends React.Component{
+
     // constructor(props){
     //     super(props)
     //     this.state = {
@@ -28,7 +29,7 @@ class App extends React.Component{
     }
 
     componentDidMount() {
-        this.obterLocalizacao()
+        
     }
 
     componentDidUpdate() {
@@ -85,7 +86,6 @@ class App extends React.Component{
                 this.setState({
                     mansagemDeErro: 'Por favor, permita o acesso'
                 })
-                //faça com que o texto "por favor, permita o acesso" apareça na tela
             }
         )
     }
@@ -103,14 +103,21 @@ class App extends React.Component{
             <div className="container mt-4">
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-8">
-                        <EstacaoClimatica 
-                            latitude = {this.state.latitude} 
-                            longitude = {this.state.longitude}
-                            estacao = {this.state.estacao}
-                            data = {this.state.data}
-                            icone = {this.state.icone}
-                            mensagemDeErro = {this.state.mensagemDeErro}
-                            obterLocalizacao = {this.obterLocalizacao}/>
+                        {
+                            this.state.mensagemDeErro ?
+                            <p className='border rounded p-2 fs-1 text-center'>
+                                É preciso dar acesso. Por favoor, refaça o procedimento.
+                            </p> :
+                            <EstacaoClimatica 
+                                latitude = {this.state.latitude} 
+                                longitude = {this.state.longitude}
+                                estacao = {this.state.estacao}
+                                data = {this.state.data}
+                                icone = {this.state.icone}
+                                mensagemDeErro = {this.state.mensagemDeErro}
+                                obterLocalizacao = {this.obterLocalizacao}
+                            />
+                        }
                     </div>
                 </div>
             </div>
