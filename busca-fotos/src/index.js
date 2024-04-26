@@ -8,5 +8,5 @@ import 'primereact/resources/themes/lara-light-teal/theme.css'
 
 ReactDOM.render(
     <App />, 
-    document.getElementById('root')
+    document.querySelector('#root')
 )
