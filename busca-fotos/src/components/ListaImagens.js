@@ -7,7 +7,8 @@ const ListaImagens = ({photos}) => {
             <Imagem 
                 src={photo.src.small}
                 id={photo.id}
-                alt={photo.alt}/>
+                alt={photo.alt}
+                />
         ))
     )
 }
